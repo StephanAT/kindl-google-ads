@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Ads Optimierungsplan — Zimmerei Kindl</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-bg: #f0f7f4;
+    --orange: #e76f51;
+    --orange-bg: #fef3f0;
+    --blue: #264653;
+    --blue-light: #2a9d8f;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-500: #6b7280;
+    --gray-700: #374151;
+    --gray-900: #111827;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--gray-900);
+    line-height: 1.6;
+    background: white;
+    font-size: 14px;
+  }
+
+  @page {
+    margin: 20mm 15mm 15mm 15mm;
+  }
+
+  @media print {
+    body { font-size: 11px; }
+    .page-break { page-break-before: always; }
+    .no-print { display: none; }
+    .box, .compare, .compare-card, .kpi-grid, .kpi-grid-3,
+    .timeline-item, h2, h3, h4 {
+      page-break-inside: avoid;
+    }
+    h2, h3, h4 {
+      page-break-after: avoid;
+    }
+    thead {
+      display: table-header-group;
+    }
+    tr {
+      page-break-inside: avoid;
+    }
+  }
+
+  .container { max-width: 800px; margin: 0 auto; padding: 40px 32px; }
+
+  /* Cover */
+  .cover {
+    text-align: center;
+    padding: 120px 40px 80px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--green) 100%);
+    color: white;
+    border-radius: 0;
+    margin: -40px -32px 0;
+  }
+  .cover-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .cover h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .cover h2 {
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.85;
+    margin-bottom: 40px;
+  }
+  .cover-meta {
+    font-size: 13px;
+    opacity: 0.7;
+  }
+  .cover-meta span { margin: 0 12px; }
+
+  /* Section headers */
+  h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--blue);
+    margin: 48px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--green);
+  }
+  h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin: 28px 0 10px;
+  }
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--green);
+    margin: 20px 0 8px;
+  }
+
+  p { margin-bottom: 12px; color: var(--gray-700); }
+
+  /* Highlight boxes */
+  .box {
+    padding: 20px 24px;
+    border-radius: 8px;
+    margin: 16px 0;
+  }
+  .box-green { background: var(--green-bg); border-left: 4px solid var(--green); }
+  .box-orange { background: var(--orange-bg); border-left: 4px solid var(--orange); }
+  .box-gray { background: var(--gray-50); border-left: 4px solid var(--gray-300); }
+  .box-blue { background: #eef6f8; border-left: 4px solid var(--blue-light); }
+  .box strong { color: var(--gray-900); }
+  .box p:last-child { margin-bottom: 0; }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+  th {
+    background: var(--blue);
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--gray-200);
+    color: var(--gray-700);
+  }
+  tr:nth-child(even) td { background: var(--gray-50); }
+  .highlight-row td { background: var(--orange-bg) !important; color: var(--orange); font-weight: 500; }
+  .good-row td { background: var(--green-bg) !important; color: var(--green); }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* Lists */
+  ul, ol { margin: 8px 0 16px 20px; color: var(--gray-700); }
+  li { margin-bottom: 6px; }
+  li strong { color: var(--gray-900); }
+
+  /* Comparison cards */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .compare-card {
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-200);
+  }
+  .compare-card.current { border-color: var(--orange); background: var(--orange-bg); }
+  .compare-card.new { border-color: var(--green); background: var(--green-bg); }
+  .compare-card h4 { margin-top: 0; }
+  .compare-card ul { margin-left: 16px; }
+
+  /* KPI cards */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .kpi-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+  .kpi {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .kpi .value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--blue);
+  }
+  .kpi .value.bad { color: var(--orange); }
+  .kpi .value.good { color: var(--green); }
+  .kpi .label {
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Timeline */
+  .timeline { margin: 20px 0; }
+  .timeline-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .timeline-dot {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 50%;
+    background: var(--green);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .timeline-dot.orange { background: var(--orange); }
+  .timeline-content { flex: 1; }
+  .timeline-content h4 { margin-top: 4px; color: var(--gray-900); }
+
+  /* Footer */
+  .footer {
+    margin-top: 60px;
+    padding: 24px 0;
+    border-top: 1px solid var(--gray-200);
+    text-align: center;
+    color: var(--gray-500);
+    font-size: 12px;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .tag-red { background: #fde8e8; color: #c53030; }
+  .tag-green { background: #def7ec; color: #057a55; }
+  .tag-yellow { background: #fef3c7; color: #92400e; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+
+  /* Flow diagram */
+  .flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+  .flow-step {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    min-width: 100px;
+  }
+  .flow-step.active {
+    background: var(--green-bg);
+    border-color: var(--green);
+    color: var(--green);
+  }
+  .flow-step.missing {
+    background: var(--orange-bg);
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+  .flow-arrow {
+    font-size: 18px;
+    color: var(--gray-300);
+  }
+
+  /* Metric comparison */
+  .metric-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .metric-row:last-child { border-bottom: none; }
+  .metric-label { font-weight: 500; color: var(--gray-700); }
+  .metric-current { color: var(--orange); font-weight: 600; }
+  .metric-new { color: var(--green); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- COVER -->
+<div class="cover">
+  <img src="https://www.kindlholz.at/cdn/shop/files/Kindl-Hauptlogo-Farbe_240x.svg?v=1742818905" alt="Kindl Zimmerei" style="height: 80px; margin-bottom: 32px; filter: brightness(0) invert(1);">
+  <div class="cover-badge">Google Ads Optimierung</div>
+  <h1>Zimmerei Kindl</h1>
+  <p style="font-size: 18px; opacity: 0.9; margin-bottom: 40px; color: white;">Analyse, Tracking-Setup &amp; Strategie-Empfehlung<br>für deine Google Ads Kampagne</p>
+  <div class="cover-meta">
+    <span>März 2026</span>
+    <span>|</span>
+    <span>Vertraulich</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- EXECUTIVE SUMMARY -->
+<!-- ============================================================ -->
+<h2>Executive Summary</h2>
+
+<p>Deine Google Ads Kampagne generiert <strong>1.869 Klicks pro Monat</strong> bei einer überdurchschnittlichen Click-Through-Rate von 11,7%. Das zeigt: Die Nachfrage ist da, und deine Anzeigen werden angeklickt. Gleichzeitig gibt es ein zentrales Problem:</p>
+
+<div class="kpi-grid">
+  <div class="kpi">
+    <div class="value">903 &euro;</div>
+    <div class="label">Monatsausgaben</div>
+  </div>
+  <div class="kpi">
+    <div class="value">1.869</div>
+    <div class="label">Klicks/Monat</div>
+  </div>
+  <div class="kpi">
+    <div class="value bad">0</div>
+    <div class="label">Gemessene Conversions</div>
+  </div>
+  <div class="kpi">
+    <div class="value bad">???</div>
+    <div class="label">Kosten pro Anfrage</div>
+  </div>
+</div>
+
+<div class="box box-orange">
+  <strong>Das Kernproblem: Du zahlst für Klicks — nicht für Ergebnisse.</strong>
+  <p>Die Kampagne ist auf „Klicks maximieren" eingestellt. Google optimiert darauf, möglichst viele Klicks zu liefern — egal ob diese zu Anrufen, Anfragen oder Shopbestellungen führen. Es gibt kein Conversion-Tracking. Das bedeutet: <strong>Weder du noch Google wisst, welche der 1.869 Klicks tatsächlich etwas gebracht haben.</strong></p>
+</div>
+
+<div class="box box-green">
+  <strong>Was möglich ist:</strong> Mit Tracking-Setup, Kampagnentrennung und gezielten Keywords erwarten wir <strong>8–15 messbare Anfragen pro Monat</strong> bei gleichem Budget. Bei einem durchschnittlichen Zimmerei-Auftragswert von 10.000 &euro; ergibt das einen potenziellen <strong>ROI von über 20:1</strong>.
+</div>
+
+<h3>Die drei Handlungsfelder</h3>
+
+<div class="kpi-grid-3">
+  <div class="kpi">
+    <div class="value" style="font-size: 18px;">1. Messen</div>
+    <div class="label">Tracking &amp; Analytics einrichten</div>
+  </div>
+  <div class="kpi">
+    <div class="value" style="font-size: 18px;">2. Trennen</div>
+    <div class="label">Zimmerei &amp; Shop aufteilen</div>
+  </div>
+  <div class="kpi">
+    <div class="value" style="font-size: 18px;">3. Optimieren</div>
+    <div class="label">Keywords &amp; Budget steuern</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TRACKING: DAS FUNDAMENT -->
+<!-- ============================================================ -->
+<h2>Tracking-Setup: Das Fundament</h2>
+
+<p>Ohne Tracking ist jede Google Ads Optimierung Blindflug. Bevor wir an Keywords oder Anzeigen arbeiten, muss die Messinfrastruktur stehen. Aktuell fehlt diese komplett.</p>
+
+<h3>Was aktuell fehlt</h3>
+
+<div class="flow">
+  <div class="flow-step active">Nutzer klickt<br>Anzeige</div>
+  <div class="flow-arrow">&rarr;</div>
+  <div class="flow-step active">Landet auf<br>kindlholz.at</div>
+  <div class="flow-arrow">&rarr;</div>
+  <div class="flow-step missing">Ruft an / Schreibt /<br>Bestellt im Shop</div>
+  <div class="flow-arrow">&rarr;</div>
+  <div class="flow-step missing">Conversion wird<br>NICHT gemessen</div>
+</div>
+
+<p>Aktuell endet die Messbarkeit beim Klick. Was danach passiert — ob jemand anruft, ein Formular ausfüllt oder im Shop bestellt — wird nicht erfasst. Google Ads kann deshalb nicht lernen, welche Keywords und Anzeigen tatsächlich Kunden bringen.</p>
+
+<h3>Was eingerichtet werden muss</h3>
+
+<table>
+  <tr><th>Komponente</th><th>Was es macht</th><th>Priorität</th></tr>
+  <tr>
+    <td><strong>Google Tag Manager (GTM)</strong></td>
+    <td>Zentraler Container für alle Tracking-Tags. Damit können Anrufe, Klicks und Formulare gemessen werden — ohne jedes Mal den Website-Code anfassen zu müssen.</td>
+    <td><span class="tag tag-red">Kritisch</span></td>
+  </tr>
+  <tr>
+    <td><strong>Google Analytics 4 (GA4)</strong></td>
+    <td>Zeigt dir genau, woher deine Besucher kommen, was sie auf der Seite tun und wo sie abspringen. Ohne GA4 triffst du alle Entscheidungen im Blindflug.</td>
+    <td><span class="tag tag-red">Kritisch</span></td>
+  </tr>
+  <tr>
+    <td><strong>Google Ads Conversion-Tag</strong></td>
+    <td>Meldet Conversions (Anrufe, Anfragen, Bestellungen) direkt an Google Ads zurück. Erst damit kann Google lernen, welche Klicks wertvoll sind.</td>
+    <td><span class="tag tag-red">Kritisch</span></td>
+  </tr>
+  <tr>
+    <td><strong>Cookie-Consent-Banner</strong></td>
+    <td>DSGVO-Pflicht in Österreich. Ohne Banner darf kein Tracking-Cookie gesetzt werden — heißt: ohne Banner funktioniert keines der anderen Tools korrekt.</td>
+    <td><span class="tag tag-red">Kritisch</span></td>
+  </tr>
+  <tr>
+    <td><strong>Google Search Console</strong></td>
+    <td>Zeigt dir, für welche Suchbegriffe deine Website organisch (gratis) bei Google erscheint. Hilft Fehler zu finden und die SEO-Sichtbarkeit langfristig zu verbessern.</td>
+    <td><span class="tag tag-red">Kritisch</span></td>
+  </tr>
+  <tr>
+    <td><strong>Google Business Profile</strong></td>
+    <td>Dein Eintrag in Google Maps und im Local Pack. Für lokale Handwerksbetriebe oft die wichtigste Traffic-Quelle — und aktuell nicht optimal gepflegt.</td>
+    <td><span class="tag tag-red">Kritisch</span></td>
+  </tr>
+  <tr>
+    <td><strong>Microsoft Clarity</strong></td>
+    <td>Kostenloses Heatmap- und Session-Recording-Tool. Zeigt dir, wo Besucher klicken, scrollen und abbrechen — extrem wertvoll um die Website zu optimieren.</td>
+    <td><span class="tag tag-yellow">Hoch</span></td>
+  </tr>
+  <tr>
+    <td><strong>Shopify &harr; Google Ads</strong></td>
+    <td>Shop-Bestellungen als Conversions in Google Ads melden. Shopify hat eine native Google-Integration — muss nur aktiviert werden.</td>
+    <td><span class="tag tag-yellow">Hoch</span></td>
+  </tr>
+  <tr>
+    <td><strong>Google Ads Anruf-Tracking</strong></td>
+    <td>Weiterleitungsnummer, die Anrufe von Google Ads Besuchern zählt. In der Handwerksbranche kommen 60–80% der Anfragen telefonisch.</td>
+    <td><span class="tag tag-yellow">Hoch</span></td>
+  </tr>
+</table>
+
+<h3>Welche Conversions gemessen werden sollen</h3>
+
+<table>
+  <tr><th>Conversion-Typ</th><th>Tracking-Methode</th><th>Erwarteter Anteil</th></tr>
+  <tr>
+    <td><strong>Telefonanrufe</strong> von der Website</td>
+    <td>Google Weiterleitungsnummer (via GTM)</td>
+    <td>~50–60%</td>
+  </tr>
+  <tr>
+    <td><strong>Telefonanrufe</strong> direkt aus der Anzeige</td>
+    <td>Anruferweiterung mit Tracking</td>
+    <td>~10–15%</td>
+  </tr>
+  <tr>
+    <td><strong>E-Mail-Klicks</strong> (mailto:)</td>
+    <td>GTM Click-Event auf mailto-Links</td>
+    <td>~10–15%</td>
+  </tr>
+  <tr>
+    <td><strong>Kontaktformular</strong></td>
+    <td>GTM Form-Submit-Event (noch einzurichten)</td>
+    <td>~10–15%</td>
+  </tr>
+  <tr>
+    <td><strong>Shop-Bestellungen</strong></td>
+    <td>Shopify Google-Integration (Purchase-Event)</td>
+    <td>Eigene Kampagne</td>
+  </tr>
+</table>
+
+<div class="box box-blue">
+  <strong>Shopify-Tracking im Detail:</strong> Kindlholz.at läuft auf Shopify. Shopify bietet eine native Google-Channel-Integration, die Käufe automatisch als Conversions an Google Ads meldet — inklusive Umsatzwert. Damit kann Google deine Holzhandel-Kampagne direkt auf Umsatz optimieren, nicht nur auf Klicks.
+</div>
+
+<h3>Warum das wichtig ist: CPC vs. Conversion-Optimierung</h3>
+
+<div class="compare">
+  <div class="compare-card current">
+    <h4 style="color: var(--orange);">Jetzt: Klicks maximieren</h4>
+    <ul>
+      <li>Google sucht die <strong>billigsten</strong> Klicks</li>
+      <li>Zieht Informationssucher an</li>
+      <li>Kein Feedback-Loop</li>
+      <li>0,48 &euro; CPC &times; 1.869 Klicks = 903 &euro;</li>
+      <li><strong>0 messbare Anfragen</strong></li>
+    </ul>
+  </div>
+  <div class="compare-card new">
+    <h4 style="color: var(--green);">Ziel: Conversions maximieren</h4>
+    <ul>
+      <li>Google sucht <strong>kaufbereite</strong> Nutzer</li>
+      <li>Fokus auf Leute die anfragen/kaufen</li>
+      <li>Google lernt aus jeder Conversion</li>
+      <li>Höherer CPC, aber weniger Streuverlust</li>
+      <li><strong>8–15 messbare Anfragen</strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="box box-gray">
+  <strong>Zeitplan:</strong> Conversion-Tracking muss <strong>vor</strong> der Kampagnen-Umstellung live sein. Dann 2–4 Wochen Daten sammeln mit der bestehenden „Klicks maximieren"-Strategie. Erst wenn genug Conversion-Daten vorliegen (mind. 15–20 Conversions), kann auf „Conversions maximieren" umgestellt werden.
+</div>
+
+<!-- ============================================================ -->
+<!-- IST-ZUSTAND -->
+<!-- ============================================================ -->
+<h2>Ist-Zustand: Deine aktuelle Kampagne</h2>
+
+<table>
+  <tr><th>Parameter</th><th>Aktueller Wert</th><th>Bewertung</th></tr>
+  <tr><td>Kampagnen</td><td>1 („Search // Allgemein")</td><td><span class="tag tag-yellow">Ausbaufähig</span></td></tr>
+  <tr><td>Anzeigengruppen</td><td>1 („Anzeigengruppe 1")</td><td><span class="tag tag-yellow">Ausbaufähig</span></td></tr>
+  <tr><td>Keywords</td><td>42, alle Broad Match</td><td><span class="tag tag-yellow">Ausbaufähig</span></td></tr>
+  <tr><td>Budget</td><td>30 &euro;/Tag (~900 &euro;/Monat)</td><td><span class="tag tag-green">OK</span></td></tr>
+  <tr><td>Gebotsstrategie</td><td>Klicks maximieren</td><td><span class="tag tag-red">Umstellen</span></td></tr>
+  <tr><td>Conversion-Tracking</td><td>Nicht eingerichtet</td><td><span class="tag tag-red">Kritisch</span></td></tr>
+  <tr><td>GTM / GA4</td><td>Nicht eingerichtet</td><td><span class="tag tag-red">Kritisch</span></td></tr>
+  <tr><td>Cookie-Banner</td><td>Nicht vorhanden</td><td><span class="tag tag-red">Kritisch</span></td></tr>
+  <tr><td>Anzeigenstärke</td><td>Poor (schlecht)</td><td><span class="tag tag-red">Kritisch</span></td></tr>
+  <tr><td>Durchschn. CPC</td><td>0,48 &euro;</td><td><span class="tag tag-green">Günstig</span></td></tr>
+  <tr><td>CTR</td><td>11,73%</td><td><span class="tag tag-green">Überdurchschnittlich</span></td></tr>
+  <tr><td>Status</td><td>Budget-limitiert</td><td><span class="tag tag-yellow">Bedingt</span></td></tr>
+</table>
+
+<h3>Was gut läuft</h3>
+<ul>
+  <li><strong>Hohe CTR von 11,7%</strong> — deutlich über dem Branchenschnitt von ~5–7%.</li>
+  <li><strong>Niedriger CPC von 0,48 &euro;</strong> — günstiger als die meisten Handwerksbetriebe (Durchschnitt: 1–2 &euro;).</li>
+  <li><strong>Solides Klickvolumen</strong> — 1.869 Klicks/Monat zeigen echte Nachfrage.</li>
+  <li><strong>Service-Seiten vorhanden</strong> — Carport, Dachstuhl, Terrassenüberdachung als Landingpages nutzbar.</li>
+  <li><strong>Starke lokale Marke</strong> — „kindl ladendorf" hat 210 und „zimmerei kindl" 110 monatliche Google-Suchen.</li>
+</ul>
+
+<h3>Wo Potenzial liegt</h3>
+
+<h4>Budget-Verteilung nach Keyword-Typ</h4>
+<table>
+  <tr><th>Keyword</th><th>Klicks</th><th>Kosten</th><th>CTR</th><th>CPC</th><th>Typ</th></tr>
+  <tr class="highlight-row"><td>konstruktionsholz</td><td class="num">665</td><td class="num">380 &euro;</td><td class="num">9,7%</td><td class="num">0,57 &euro;</td><td>Holzhandel</td></tr>
+  <tr class="good-row"><td>Holzbau</td><td class="num">281</td><td class="num">101 &euro;</td><td class="num">21,9%</td><td class="num">0,36 &euro;</td><td>Zimmerei</td></tr>
+  <tr><td>holzhandel</td><td class="num">126</td><td class="num">70 &euro;</td><td class="num">8,6%</td><td class="num">0,56 &euro;</td><td>Holzhandel</td></tr>
+  <tr><td>Dachdecker</td><td class="num">115</td><td class="num">64 &euro;</td><td class="num">7,3%</td><td class="num">0,56 &euro;</td><td>Dachdecker</td></tr>
+  <tr><td>holzhandel NÖ</td><td class="num">216</td><td class="num">61 &euro;</td><td class="num">24,0%</td><td class="num">0,28 &euro;</td><td>Holzhandel</td></tr>
+  <tr><td>holz kaufen</td><td class="num">101</td><td class="num">56 &euro;</td><td class="num">9,9%</td><td class="num">0,56 &euro;</td><td>Holzhandel</td></tr>
+  <tr class="good-row"><td>Carport</td><td class="num">74</td><td class="num">40 &euro;</td><td class="num">13,6%</td><td class="num">0,54 &euro;</td><td>Zimmerei</td></tr>
+  <tr class="good-row"><td>holzbau in meiner Nähe</td><td class="num">107</td><td class="num">37 &euro;</td><td class="num">46,3%</td><td class="num">0,34 &euro;</td><td>Zimmerei</td></tr>
+  <tr class="good-row"><td>zimmerei</td><td class="num">57</td><td class="num">22 &euro;</td><td class="num">13,9%</td><td class="num">0,39 &euro;</td><td>Zimmerei</td></tr>
+  <tr class="good-row"><td>Terrassenüberdachung</td><td class="num">34</td><td class="num">17 &euro;</td><td class="num">7,9%</td><td class="num">0,49 &euro;</td><td>Zimmerei</td></tr>
+</table>
+
+<p><span class="tag tag-green">Grün</span> = Zimmerei-Keywords &nbsp; <span class="tag tag-red">Orange</span> = Holzhandel &nbsp; <span class="tag" style="background:#e0f2fe;color:#1e40af;">Blau</span> = Dachdecker</p>
+
+<div class="box box-gray">
+  <strong>Einordnung:</strong> Da Kindl Zimmerei, Dachdeckerei und Holzhandel betreibt, sind alle diese Keywords grundsätzlich relevant. Das Problem: Alle laufen in <strong>einer</strong> Anzeigengruppe mit <strong>einer</strong> Anzeige. Ein Holzkäufer sieht dieselbe Anzeige wie jemand, der einen Dachstuhl bauen lassen möchte oder einen Dachdecker sucht. Drei verschiedene Zielgruppen, eine generische Anzeige — das kostet Relevanz und Conversion-Rate.
+</div>
+
+<h4>Anzeigentexte senden gemischte Signale</h4>
+<ul>
+  <li>Headline 1 „Bauholz bestellen-Holzhandlung" — positioniert als Holzhändler</li>
+  <li>Headline 2 „Zimmerei - Holzbau in der Nähe" — positioniert als Zimmerei</li>
+  <li>Headline 15 „Dach reparieren" — positioniert als Dachdecker, aber ohne eigene Anzeigengruppe</li>
+</ul>
+<p>Google kombiniert diese zufällig. Jemand der eine Zimmerei sucht, sieht möglicherweise „Bauholz bestellen".</p>
+
+<div class="box box-orange">
+  <strong>Tippfehler:</strong> In den Structured Snippets steht „Dein Projekt = unser <strong>Zeil</strong>" statt „<strong>Ziel</strong>".
+</div>
+
+
+<!-- ============================================================ -->
+<!-- KEYWORD-RECHERCHE -->
+<!-- ============================================================ -->
+<h2>Keyword-Recherche: Marktpotenzial in Österreich</h2>
+
+<p>Basierend auf aktuellen Google-Suchdaten für Österreich (März 2026). Die Daten zeigen sowohl das Suchvolumen als auch die aktuellen Klickpreise im Wettbewerb.</p>
+
+<h3>Zimmerei &amp; Holzbau-Dienstleistungen</h3>
+
+<table>
+  <tr><th>Keyword</th><th>Suchvolumen/Monat</th><th>CPC</th><th>Wettbewerb</th><th>Schwierigkeit</th></tr>
+  <tr><td>zimmerer in der Nähe</td><td class="num">590</td><td class="num">2,25 &euro;</td><td>Mittel</td><td class="num">28</td></tr>
+  <tr><td>zimmerei in meiner Nähe</td><td class="num">320</td><td class="num">0,58 &euro;</td><td>Niedrig</td><td class="num">28</td></tr>
+  <tr><td>dachdecker niederösterreich</td><td class="num">140</td><td class="num">0,83 &euro;</td><td>Niedrig</td><td class="num">28</td></tr>
+  <tr><td>holzbau niederösterreich</td><td class="num">110</td><td class="num">1,99 &euro;</td><td>Mittel</td><td class="num">27</td></tr>
+  <tr><td>aufstockung holzbau</td><td class="num">110</td><td class="num">1,17 &euro;</td><td>Niedrig</td><td>–</td></tr>
+  <tr><td>holzbau firma</td><td class="num">90</td><td class="num">1,74 &euro;</td><td>Niedrig</td><td class="num">75</td></tr>
+  <tr><td>zimmerei niederösterreich</td><td class="num">70</td><td class="num">1,85 &euro;</td><td>Niedrig</td><td class="num">26</td></tr>
+  <tr><td>carport bauen lassen</td><td class="num">40</td><td class="num">2,78 &euro;</td><td>Hoch</td><td class="num">50</td></tr>
+  <tr><td>carport bauen lassen kosten</td><td class="num">20</td><td class="num">1,83 &euro;</td><td>Hoch</td><td>–</td></tr>
+  <tr><td>zimmerei holzbau niederösterreich</td><td class="num">10</td><td class="num">3,12 &euro;</td><td>Hoch</td><td class="num">50</td></tr>
+  <tr><td>dachstuhl erneuern</td><td class="num">10</td><td class="num">1,50 &euro;</td><td>Mittel</td><td>–</td></tr>
+  <tr><td>zimmermann gesucht</td><td class="num">10</td><td class="num">–</td><td>Mittel</td><td>–</td></tr>
+</table>
+
+<h3>Produkt- &amp; Projekt-Keywords (hohe Suchvolumina)</h3>
+
+<table>
+  <tr><th>Keyword</th><th>Suchvolumen/Monat</th><th>CPC</th><th>Wettbewerb</th><th>Saisonalität</th></tr>
+  <tr><td><strong>carport holz</strong></td><td class="num"><strong>2.900</strong></td><td class="num">0,59 &euro;</td><td>Hoch</td><td>Mär–Sep</td></tr>
+  <tr><td><strong>pergola holz</strong></td><td class="num"><strong>1.900</strong></td><td class="num">1,21 &euro;</td><td>Hoch</td><td>Mär–Jun</td></tr>
+  <tr><td><strong>holzriegelbau</strong></td><td class="num"><strong>1.600</strong></td><td class="num">1,02 &euro;</td><td>Hoch</td><td>Ganzjährig</td></tr>
+  <tr><td><strong>terrassenüberdachung holz</strong></td><td class="num"><strong>1.300</strong></td><td class="num">1,29 &euro;</td><td>Hoch</td><td>Mär–Jun</td></tr>
+  <tr><td>balkon holz</td><td class="num">260</td><td class="num">0,66 &euro;</td><td>Hoch</td><td>Mär–Sep</td></tr>
+  <tr><td>vordach holz</td><td class="num">210</td><td class="num">0,25 &euro;</td><td>Hoch</td><td>Mär–Sep</td></tr>
+  <tr><td>gartenhaus nach Maß</td><td class="num">50</td><td class="num">1,77 &euro;</td><td>Hoch</td><td>Mär–Sep</td></tr>
+</table>
+
+<div class="box box-green">
+  <strong>Großes Potenzial:</strong> Keywords wie „carport holz" (2.900/Monat), „pergola holz" (1.900/Monat) und „terrassenüberdachung holz" (1.300/Monat) haben enormes Suchvolumen bei moderaten CPCs. Diese Keywords sind aktuell nur teilweise in der Kampagne vertreten — und wenn, dann ohne passende Anzeige oder Landingpage.
+</div>
+
+<h3>Holzhandel-Keywords (für die Shop-Kampagne)</h3>
+
+<table>
+  <tr><th>Keyword</th><th>Suchvolumen/Monat</th><th>CPC</th><th>Wo Kindl organisch rankt</th></tr>
+  <tr><td>holz kaufen</td><td class="num">880</td><td class="num">0,94 &euro;</td><td>Rang 5</td></tr>
+  <tr><td>nut feder bretter</td><td class="num">880</td><td class="num">0,20 &euro;</td><td>Rang 5</td></tr>
+  <tr><td>bauholz</td><td class="num">480</td><td class="num">0,91 &euro;</td><td>Rang 8</td></tr>
+  <tr><td>bretter</td><td class="num">480</td><td class="num">0,28 &euro;</td><td>Rang 6</td></tr>
+  <tr><td>dhf platte</td><td class="num">320</td><td class="num">0,16 &euro;</td><td>Rang 4</td></tr>
+  <tr><td>zellulose einblasdämmung</td><td class="num">260</td><td class="num">1,39 &euro;</td><td>Rang 7</td></tr>
+  <tr><td>lärchenbretter kaufen</td><td class="num">260</td><td class="num">0,48 &euro;</td><td>Rang 4</td></tr>
+  <tr><td>holzbretter kaufen</td><td class="num">210</td><td class="num">0,70 &euro;</td><td>Rang 4</td></tr>
+  <tr><td>holzbalken kaufen</td><td class="num">210</td><td class="num">0,28 &euro;</td><td>Rang 5</td></tr>
+  <tr><td>bauholz kaufen</td><td class="num">210</td><td class="num">1,09 &euro;</td><td>Rang 8</td></tr>
+  <tr><td>holzhandel niederösterreich</td><td class="num">140</td><td class="num">1,30 &euro;</td><td>–</td></tr>
+  <tr><td>bauholz preisliste sägewerk</td><td class="num">140</td><td class="num">0,70 &euro;</td><td>Rang 2</td></tr>
+  <tr><td>holz kaufen online</td><td class="num">110</td><td class="num">1,54 &euro;</td><td>Rang 2</td></tr>
+  <tr><td>hochbeete aus lärchenholz</td><td class="num">110</td><td class="num">1,67 &euro;</td><td>Rang 4</td></tr>
+  <tr><td>konstruktionsholz kaufen</td><td class="num">50</td><td class="num">1,10 &euro;</td><td>–</td></tr>
+</table>
+
+<div class="box box-blue">
+  <strong>Kindlholz.at rankt organisch für 91 Keywords</strong> mit geschätztem Traffic von ~577 Besuchen/Monat. Davon sind <strong>100% Holzhandel/Shop-Keywords</strong>. Für Zimmerei- und Dachdecker-Dienstleistungen (zimmerei niederösterreich, dachdecker niederösterreich, holzbau, etc.) gibt es <strong>null organische Sichtbarkeit</strong>.
+</div>
+
+<h3>Wettbewerbslandschaft</h3>
+
+<table>
+  <tr><th>Wettbewerber</th><th>Sichtbarkeit</th><th>Stärkste Position</th><th>Besonderheit</th></tr>
+  <tr><td><strong>firmen.wko.at</strong></td><td class="num">Rating: 197</td><td>#1 für „zimmerei NÖ"</td><td>WKO-Verzeichnis</td></tr>
+  <tr><td><strong>longin.at</strong></td><td class="num">Rating: 194</td><td>#3 für „zimmerei NÖ" + „holzbau NÖ"</td><td>Blog, SEO, stärkste Online-Präsenz</td></tr>
+  <tr><td><strong>mp-holzbau.at</strong></td><td class="num">Rating: 273</td><td>#4 für „zimmerei NÖ"</td><td>Rankt für alle 3 regionalen Keywords</td></tr>
+  <tr><td><strong>holzbau-noe.at</strong></td><td class="num">Rating: 165</td><td>#1 für „holzbau NÖ"</td><td>Branchenverband</td></tr>
+  <tr><td><strong>holzbau-k.at</strong></td><td class="num">Rating: 187</td><td>#6 für „holzbau NÖ"</td><td>Solide mittlere Position</td></tr>
+  <tr><td><strong>kindlholz.at</strong></td><td class="num">—</td><td><strong>Nicht in Top 100</strong></td><td>Keine organische Zimmerei-Sichtbarkeit</td></tr>
+</table>
+
+<div class="box box-green">
+  <strong>Chance:</strong> Kein Wettbewerber in der Region schaltet aktuell sichtbare Google Ads für Zimmerei-Keywords. Mit Google Ads kann Kindl sofort auf Position 1 erscheinen — während die organische Sichtbarkeit parallel aufgebaut wird.
+</div>
+
+<h3>Marken-Keywords (Brand)</h3>
+
+<table>
+  <tr><th>Keyword</th><th>Suchvolumen/Monat</th><th>CPC</th><th>Organisches Ranking</th></tr>
+  <tr><td>kindl ladendorf</td><td class="num">210</td><td class="num">1,29 &euro;</td><td>Rang 1</td></tr>
+  <tr><td>zimmerei kindl</td><td class="num">110</td><td class="num">0,02 &euro;</td><td>Rang 1</td></tr>
+  <tr><td>isocell</td><td class="num">880</td><td class="num">0,26 &euro;</td><td>Rang 3</td></tr>
+</table>
+
+<p><strong>320 monatliche Marken-Suchen</strong> zeigen starke lokale Bekanntheit. Diese sollten über eine eigene Brand-Kampagne mit minimalem Budget abgesichert werden.</p>
+
+
+<!-- ============================================================ -->
+<!-- DER PLAN -->
+<!-- ============================================================ -->
+<h2>Der Plan: Neue Kampagnenstruktur</h2>
+
+<h3>Vorher vs. Nachher</h3>
+
+<div class="compare">
+  <div class="compare-card current">
+    <h4 style="color: var(--orange);">Aktuell</h4>
+    <ul>
+      <li>1 Kampagne, 1 Anzeigengruppe</li>
+      <li>42 Keywords, alle Broad Match</li>
+      <li>1 Anzeige für alles</li>
+      <li>Kein Conversion-Tracking</li>
+      <li>Kein GTM / GA4 / Cookie-Banner</li>
+      <li>Keine Negativ-Keywords</li>
+      <li>Alle auf die Startseite</li>
+      <li>„Klicks maximieren"</li>
+    </ul>
+  </div>
+  <div class="compare-card new">
+    <h4 style="color: var(--green);">Optimiert</h4>
+    <ul>
+      <li>3 Kampagnen, je 3–5 Anzeigengruppen</li>
+      <li>Gezielte Keywords, Phrase/Exact Match</li>
+      <li>Passende Anzeige pro Thema</li>
+      <li>Vollständiges Conversion-Tracking</li>
+      <li>GTM + GA4 + Cookie-Banner + Shopify</li>
+      <li>Umfangreiche Negativ-Listen</li>
+      <li>Landingpage pro Leistung/Kategorie</li>
+      <li>Manueller CPC → Conversions max.</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Kampagne 1: Zimmerei, Dachdecker &amp; Holzbau (Dienstleistung)</h3>
+<p><strong>Ziel:</strong> Anfragen für Zimmerei- und Dachdecker-Projekte generieren<br>
+<strong>Budget:</strong> 15–20 &euro;/Tag (~450–600 &euro;/Monat)<br>
+<strong>Landingpages:</strong> Jeweilige Service-Seite auf kindlholz.at</p>
+
+<table>
+  <tr><th>Anzeigengruppe</th><th>Keywords (Phrase Match)</th><th>SV gesamt</th><th>Landingpage</th></tr>
+  <tr>
+    <td><strong>Zimmerei allgemein</strong></td>
+    <td>„zimmerei niederösterreich" „zimmerei in meiner nähe" „zimmerer in der nähe" „holzbau firma" „zimmerer weinviertel"</td>
+    <td class="num">~1.070</td>
+    <td>Startseite</td>
+  </tr>
+  <tr>
+    <td><strong>Carport</strong></td>
+    <td>„carport holz" „carport bauen lassen" „carport niederösterreich" „carport nach maß"</td>
+    <td class="num">~2.960</td>
+    <td>/pages/carport</td>
+  </tr>
+  <tr>
+    <td><strong>Dachstuhl</strong></td>
+    <td>„dachstuhl bauen" „dachstuhl erneuern" „dachsanierung" „neuer dachstuhl"</td>
+    <td class="num">~900</td>
+    <td>/pages/dachstühle</td>
+  </tr>
+  <tr>
+    <td><strong>Dachdecker</strong></td>
+    <td>„dachdecker niederösterreich" „dachdecker in meiner nähe" „dach reparieren" „dachdeckerei"</td>
+    <td class="num">~500</td>
+    <td>/pages/dacharbeiten</td>
+  </tr>
+  <tr>
+    <td><strong>Terrasse &amp; Pergola</strong></td>
+    <td>„terrassenüberdachung holz" „pergola holz" „pergola bauen lassen" „überdachte terrasse" „vordach holz"</td>
+    <td class="num">~3.410</td>
+    <td>/pages/terrassen&shy;überdachung</td>
+  </tr>
+  <tr>
+    <td><strong>Spezialleistungen</strong></td>
+    <td>„holzriegelbau" „aufstockung holzbau" „dachausbau" „zellulosedämmung"</td>
+    <td class="num">~1.820</td>
+    <td>Jeweilige Unterseite</td>
+  </tr>
+</table>
+
+<h3>Kampagne 2: Holzhandel &amp; Online-Shop</h3>
+<p><strong>Ziel:</strong> Holzverkäufe über den Online-Shop, messbar mit Shopify-Integration<br>
+<strong>Budget:</strong> 8–10 &euro;/Tag (~240–300 &euro;/Monat)<br>
+<strong>Landingpage:</strong> Shop-Kategorien auf kindlholz.at</p>
+
+<table>
+  <tr><th>Anzeigengruppe</th><th>Keywords</th><th>SV gesamt</th><th>Landingpage</th></tr>
+  <tr>
+    <td><strong>Bauholz</strong></td>
+    <td>„konstruktionsholz kaufen" „bauholz bestellen" „kantholz kaufen" „holzbalken kaufen" „bauholz preisliste"</td>
+    <td class="num">~720</td>
+    <td>/collections/bauschnittholz</td>
+  </tr>
+  <tr>
+    <td><strong>Lärche &amp; Bretter</strong></td>
+    <td>„lärchenbretter kaufen" „lärchenpfosten" „bretter sägerau" „nut feder bretter" „holzbretter kaufen"</td>
+    <td class="num">~1.640</td>
+    <td>/collections/holz</td>
+  </tr>
+  <tr>
+    <td><strong>Dämmung</strong></td>
+    <td>„zellulosedämmung kaufen" „einblasdämmung" „isocell zellulose"</td>
+    <td class="num">~350</td>
+    <td>/products/isocell-zellulose&shy;daemmung-sack</td>
+  </tr>
+  <tr>
+    <td><strong>Hochbeet &amp; Garten</strong></td>
+    <td>„hochbeet lärchenholz" „hochbeet bausatz" „gartenhaus nach maß"</td>
+    <td class="num">~160</td>
+    <td>/products/hochbeet-bausatz</td>
+  </tr>
+</table>
+
+<h3>Kampagne 3: Marke (Brand Protection)</h3>
+<p><strong>Ziel:</strong> Eigene Marke in der Suche absichern<br>
+<strong>Budget:</strong> 2–3 &euro;/Tag (~60–90 &euro;/Monat) — sehr niedrige CPCs<br>
+<strong>Keywords:</strong> „zimmerei kindl" „kindl ladendorf" „kindlholz"</p>
+
+<div class="box box-blue">
+  <strong>Gesamtbudget-Vergleich:</strong><br><br>
+  <strong>Aktuell:</strong> ~900 &euro;/Monat — 1 Kampagne, alles gemischt, nicht messbar<br>
+  <strong>Optimiert:</strong> ~750–990 &euro;/Monat — 3 Kampagnen, zielgerichtet, messbar<br><br>
+  Bei gleichem oder leicht reduziertem Budget erwarten wir deutlich bessere Ergebnisse, weil jeder Euro gezielter eingesetzt wird.
+</div>
+
+<!-- ============================================================ -->
+<!-- NEGATIV-KEYWORDS -->
+<!-- ============================================================ -->
+<h2>Negativ-Keywords: Was ausgeschlossen wird</h2>
+<p>Negativ-Keywords verhindern, dass die Anzeige bei irrelevanten Suchanfragen erscheint.</p>
+
+<h4>DIY &amp; Selbermachen</h4>
+<p><code>selber bauen, selber machen, DIY, anleitung, bauanleitung, bauplan, heimwerker, selbstbau, tutorial</code></p>
+
+<h4>Job &amp; Karriere</h4>
+<p><code>job, jobs, stelle, stellenangebot, karriere, bewerbung, gehalt, lehre, lehrling, lehrstelle, ausbildung, praktikum</code></p>
+
+<h4>Bildung &amp; Information</h4>
+<p><code>kurs, schulung, studium, meisterschule, definition, wikipedia, referat</code></p>
+
+<h4>Schnäppchenjäger</h4>
+<p><code>kostenlos, gratis, billig, billigste, gebraucht, second hand, gutschein, rabattcode</code></p>
+
+<h4>Für Zimmerei-Kampagne: Kauf-Keywords</h4>
+<p><code>kaufen, bestellen, online shop, amazon, hornbach, obi, bauhaus, lagerhaus, bausatz, fertigbausatz</code></p>
+
+<h4>Nicht relevant</h4>
+<p><code>brennholz, kaminholz, pellets, holzofen, holzspielzeug, möbel, tisch, stuhl, versicherung, anwalt</code></p>
+
+<div class="box box-gray">
+  <strong>Hinweis:</strong> Für die Holzhandel-Kampagne werden „kaufen" und „bestellen" natürlich NICHT ausgeschlossen — dort sind das gewünschte Keywords.
+</div>
+
+<!-- ============================================================ -->
+<!-- ANZEIGENTEXTE -->
+<!-- ============================================================ -->
+<h2>Anzeigentexte: Empfohlene Überarbeitung</h2>
+
+<h3>Beispiel: Anzeigengruppe „Zimmerei allgemein"</h3>
+<div class="box box-gray">
+  <strong>Headlines:</strong>
+  <ol>
+    <li>Zimmerei Kindl | Holzbau NÖ <span class="tag tag-blue">Pin Pos. 1</span></li>
+    <li>Zimmerei in Ihrer Nähe</li>
+    <li>Meisterbetrieb seit 1963</li>
+    <li>Holzbau aus dem Weinviertel</li>
+    <li>Jetzt Angebot anfordern</li>
+    <li>Ihr Zimmerer in Ladendorf</li>
+    <li>Kostenlose Erstberatung</li>
+    <li>Vom Dachstuhl bis zum Carport</li>
+  </ol>
+  <br>
+  <strong>Descriptions:</strong>
+  <ol>
+    <li>Zimmerei Kindl — Ihr verlässlicher Partner für Dachstühle, Carports und Holzbau in Niederösterreich. Jetzt unverbindlich anfragen!</li>
+    <li>Über 60 Jahre Erfahrung im Weinviertel. Individuelle Holzkonstruktionen vom Meisterbetrieb. ★ 4,9 Sterne bei 42 Bewertungen.</li>
+  </ol>
+</div>
+
+<h3>Beispiel: Anzeigengruppe „Carport"</h3>
+<div class="box box-gray">
+  <strong>Headlines:</strong>
+  <ol>
+    <li>Carport aus Holz | Zimmerei Kindl <span class="tag tag-blue">Pin Pos. 1</span></li>
+    <li>Carport nach Maß vom Zimmerer</li>
+    <li>Carport bauen lassen in NÖ</li>
+    <li>In 6 Schritten zum fertigen Carport</li>
+    <li>Jetzt unverbindlich anfragen</li>
+    <li>Hochwertige Holzkonstruktionen</li>
+  </ol>
+</div>
+
+<h3>Beispiel: Anzeigengruppe „Bauholz" (Shop)</h3>
+<div class="box box-gray">
+  <strong>Headlines:</strong>
+  <ol>
+    <li>Bauholz online bestellen | Kindlholz <span class="tag tag-blue">Pin Pos. 1</span></li>
+    <li>Konstruktionsholz ab Lager</li>
+    <li>Kantholz, Bretter, Pfosten</li>
+    <li>Lärche &amp; Fichte sägerau</li>
+    <li>Abholung in Ladendorf</li>
+    <li>Qualitätsholz vom Zimmerer</li>
+  </ol>
+  <br>
+  <strong>Descriptions:</strong>
+  <ol>
+    <li>Konstruktionsholz, Bretter und Pfosten online bestellen. Fichte &amp; Lärche sägerau. Abholung in Ladendorf oder Lieferung in NÖ.</li>
+    <li>Vom Zimmerer-Fachbetrieb seit 1963. Faire Preise, schnelle Verfügbarkeit. Jetzt im Online-Shop stöbern!</li>
+  </ol>
+</div>
+
+<h3>Sitelinks (pro Kampagne)</h3>
+<table>
+  <tr><th>Zimmerei-Kampagne</th><th>Holzhandel-Kampagne</th></tr>
+  <tr><td>Dachstuhl</td><td>Holz-Sortiment</td></tr>
+  <tr><td>Carport</td><td>Lärchenholz</td></tr>
+  <tr><td>Terrassenüberdachung</td><td>Dämmung</td></tr>
+  <tr><td>Kontakt &amp; Beratung</td><td>Hochbeet-Bausätze</td></tr>
+  <tr><td>Unsere Leistungen</td><td>Abholung &amp; Lieferung</td></tr>
+</table>
+
+
+<!-- ============================================================ -->
+<!-- BUDGET & PROGNOSE -->
+<!-- ============================================================ -->
+<h2>Budget, Prognose &amp; Ausblick</h2>
+
+<h3>Budgetverteilung (empfohlen)</h3>
+<table>
+  <tr><th>Kampagne</th><th>Tagesbudget</th><th>Monatsbudget</th><th>Anteil</th></tr>
+  <tr><td><strong>Zimmerei, Dachdecker &amp; Holzbau</strong></td><td>15–20 &euro;</td><td>450–600 &euro;</td><td>60%</td></tr>
+  <tr><td><strong>Holzhandel / Shop</strong></td><td>8–10 &euro;</td><td>240–300 &euro;</td><td>30%</td></tr>
+  <tr><td><strong>Marke</strong></td><td>2–3 &euro;</td><td>60–90 &euro;</td><td>10%</td></tr>
+  <tr style="font-weight: 700;"><td><strong>Gesamt</strong></td><td>25–33 &euro;</td><td>750–990 &euro;</td><td>100%</td></tr>
+</table>
+
+<h3>Erwartete Conversion-Kosten</h3>
+<table>
+  <tr><th></th><th>Zimmerei (Anfrage)</th><th>Holzhandel (Bestellung)</th></tr>
+  <tr><td>Erwarteter CPC</td><td>1,00–2,00 &euro;</td><td>0,40–0,80 &euro;</td></tr>
+  <tr><td>Erwartete Conversion-Rate</td><td>3–5%</td><td>1–3%</td></tr>
+  <tr><td><strong>Kosten pro Conversion</strong></td><td><strong>30–60 &euro;</strong></td><td><strong>20–50 &euro;</strong></td></tr>
+  <tr><td>Erwartete Conversions/Monat</td><td>8–15 Anfragen</td><td>5–12 Bestellungen</td></tr>
+  <tr><td>Durchschn. Auftragswert</td><td>5.000–50.000 &euro;</td><td>50–500 &euro;</td></tr>
+</table>
+
+<h3>Prognose: Aktuell vs. Optimiert</h3>
+
+<table>
+  <tr><th></th><th>Aktuell</th><th>Monat 1–2</th><th>Monat 3–4</th></tr>
+  <tr><td>Budget/Monat</td><td>~900 &euro;</td><td>~750–900 &euro;</td><td>~900–1.200 &euro;*</td></tr>
+  <tr><td>Gebotsstrategie</td><td>Klicks max.</td><td>Manueller CPC</td><td>Conversions max.</td></tr>
+  <tr><td>Klicks/Monat</td><td>1.869</td><td>~600–800</td><td>~500–700</td></tr>
+  <tr><td>Gemessene Anfragen (Zimmerei)</td><td><strong>0</strong></td><td><strong>5–10</strong></td><td><strong>8–15</strong></td></tr>
+  <tr><td>Gemessene Bestellungen (Shop)</td><td><strong>0</strong></td><td><strong>3–6</strong></td><td><strong>5–12</strong></td></tr>
+  <tr><td>Kosten pro Anfrage</td><td>Nicht messbar</td><td>~50–80 &euro;</td><td>~35–60 &euro;</td></tr>
+</table>
+
+<p><em>*Budgetsteigerung nach 4–8 Wochen möglich, sobald Conversion-Daten die Profitabilität belegen.</em></p>
+
+<div class="box box-green">
+  <strong>Ausblick nach 4–8 Wochen:</strong>
+  <p>Sobald genug Conversion-Daten vorliegen (mind. 15–20 Conversions im Monat), wird die Gebotsstrategie auf <strong>„Conversions maximieren"</strong> umgestellt. Google nutzt dann Machine Learning, um deine Anzeigen bevorzugt den Leuten zu zeigen, die am wahrscheinlichsten anfragen oder bestellen.</p>
+  <p>Ab diesem Punkt kann das Budget gezielt erhöht werden — weil jeder zusätzliche Euro messbar zu Anfragen führt. <strong>Typische Skalierung: +20–50% Budget bei gleichbleibenden Kosten pro Anfrage.</strong></p>
+  <p>Mittelfristig (3–6 Monate) ist auch ein <strong>Ziel-CPA</strong> (Target Cost-per-Acquisition) denkbar: Du legst fest, dass eine Zimmerei-Anfrage maximal 50 &euro; kosten darf, und Google optimiert automatisch darauf.</p>
+</div>
+
+<div class="box box-gray">
+  <strong>Rechenbeispiel Zimmerei-Kampagne:</strong><br><br>
+  10 Anfragen/Monat &times; 20% Auftragsquote = <strong>2 neue Aufträge/Monat</strong><br>
+  2 Aufträge &times; 10.000 &euro; durchschn. Wert = <strong>20.000 &euro; Umsatz</strong><br>
+  Bei ~600 &euro; Kampagnenkosten = <strong>ROI von über 30:1</strong><br><br>
+  Selbst bei konservativsten Annahmen (5 Anfragen, 10% Quote, 5.000 &euro; Wert) = 2.500 &euro; Umsatz bei 600 &euro; Kosten = ROI 4:1.
+</div>
+
+<!-- ============================================================ -->
+<!-- UMSETZUNGSPLAN -->
+<!-- ============================================================ -->
+<h2>Umsetzungsplan</h2>
+
+<div class="timeline">
+  <div class="timeline-item">
+    <div class="timeline-dot orange">1</div>
+    <div class="timeline-content">
+      <h4>Woche 1: Tracking-Fundament</h4>
+      <ul>
+        <li><strong>Google Tag Manager (GTM)</strong> einrichten und auf kindlholz.at einbinden</li>
+        <li><strong>Google Analytics 4 (GA4)</strong> aufsetzen, mit GTM verknüpfen</li>
+        <li><strong>Cookie-Consent-Banner</strong> installieren (DSGVO-Pflicht)</li>
+        <li><strong>Google Search Console</strong> einrichten (organische Sichtbarkeit monitoren)</li>
+        <li><strong>Google Business Profile</strong> optimieren (Fotos, Leistungen, Öffnungszeiten)</li>
+        <li><strong>Microsoft Clarity</strong> einbinden (Heatmaps &amp; Session-Recordings)</li>
+        <li><strong>Google Ads Conversion-Tags</strong> anlegen: Anrufe, E-Mail-Klicks, Formulare</li>
+        <li><strong>Shopify &harr; Google</strong> Integration aktivieren (Purchase-Tracking)</li>
+        <li>Tippfehler „Zeil" → „Ziel" korrigieren</li>
+      </ul>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-dot orange">2</div>
+    <div class="timeline-content">
+      <h4>Woche 1–2: Quick Fixes an bestehender Kampagne</h4>
+      <ul>
+        <li>Negativ-Keywords hinzufügen (DIY, Jobs, Billig, etc.)</li>
+        <li>„Dachdecker" in eigene Anzeigengruppe mit passender Anzeige verschieben</li>
+        <li>Anruf-Tracking aktivieren (Google Weiterleitungsnummer)</li>
+        <li>Gebotsstrategie auf <strong>Manueller CPC</strong> umstellen (Übergangsphase)</li>
+        <li>2–4 Wochen Conversion-Daten sammeln</li>
+      </ul>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-dot">3</div>
+    <div class="timeline-content">
+      <h4>Woche 3–4: Neue Kampagnenstruktur</h4>
+      <ul>
+        <li>3 neue Kampagnen anlegen (Zimmerei, Holzhandel, Marke)</li>
+        <li>Anzeigengruppen mit passenden Keywords erstellen</li>
+        <li>Neue Anzeigentexte pro Anzeigengruppe schreiben</li>
+        <li>Final URLs auf die jeweilige Service-/Shop-Seite setzen</li>
+        <li>Sitelinks und Erweiterungen pro Kampagne einrichten</li>
+        <li>Alte Kampagne pausieren</li>
+      </ul>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-dot">4</div>
+    <div class="timeline-content">
+      <h4>Woche 3–4: Website-Optimierungen</h4>
+      <ul>
+        <li>Kontaktformular auf Service-Seiten einbauen</li>
+        <li>Referenz-Fotos / Kundenstimmen ergänzen</li>
+        <li>Google Business Profile optimieren</li>
+      </ul>
+    </div>
+  </div>
+  <div class="timeline-item">
+    <div class="timeline-dot">5</div>
+    <div class="timeline-content">
+      <h4>Ab Woche 4–8: Optimierung &amp; Skalierung</h4>
+      <ul>
+        <li>Search Terms Report wöchentlich prüfen</li>
+        <li>Keywords ohne Conversions pausieren</li>
+        <li>Budget zwischen Kampagnen verschieben basierend auf Performance</li>
+        <li>Nach 15–20+ Conversions: Gebotsstrategie auf <strong>„Conversions maximieren"</strong> umstellen</li>
+        <li>Bei nachgewiesenem ROI: <strong>Budget um 20–50% steigern</strong></li>
+        <li>Mittelfristig: Ziel-CPA einrichten (z.B. max. 50 &euro; pro Anfrage)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- WEBSITE-EMPFEHLUNGEN -->
+<!-- ============================================================ -->
+<h2>Website-Empfehlungen</h2>
+<p>Die Google Ads Kampagne ist nur so gut wie die Website, auf der deine Besucher landen.</p>
+
+<table>
+  <tr><th>Maßnahme</th><th>Warum</th><th>Priorität</th></tr>
+  <tr>
+    <td><strong>Kontaktformular</strong> auf allen Service-Seiten</td>
+    <td>Aktuell nur Telefon + E-Mail. Viele Kunden bevorzugen ein Formular — besonders abends und am Wochenende.</td>
+    <td><span class="tag tag-red">Hoch</span></td>
+  </tr>
+  <tr>
+    <td><strong>Referenz-Fotos &amp; Kundenstimmen</strong></td>
+    <td>Die 4,9-Sterne-Bewertung bei 42 Rezensionen ist ein starkes Argument — sollte prominent sichtbar sein.</td>
+    <td><span class="tag tag-yellow">Mittel</span></td>
+  </tr>
+  <tr>
+    <td><strong>YouTube-Videos prüfen</strong></td>
+    <td>2 von 4 eingebetteten Videos auf der Startseite zeigen Wiedergabefehler.</td>
+    <td><span class="tag tag-yellow">Mittel</span></td>
+  </tr>
+  <tr>
+    <td><strong>Preisindikationen</strong> auf Service-Seiten</td>
+    <td>„Ab X &euro;" Angaben helfen Besuchern sich zu orientieren und filtern unpassende Anfragen.</td>
+    <td><span class="tag tag-blue">Nice-to-have</span></td>
+  </tr>
+  <tr>
+    <td><strong>„Dachcheck" prominenter bewerben</strong></td>
+    <td>Niedrigschwelliges Angebot für Erstanfragen. Eignet sich als Einstieg für größere Aufträge.</td>
+    <td><span class="tag tag-yellow">Mittel</span></td>
+  </tr>
+</table>
+
+<!-- ============================================================ -->
+<!-- NÄCHSTE SCHRITTE -->
+<!-- ============================================================ -->
+<h2>Nächste Schritte</h2>
+
+<div class="box box-green">
+  <p>Deine bestehende Kampagne hat eine gute Basis: hohe Klickraten, niedrige CPCs und echte Nachfrage. Mit den vorgeschlagenen Anpassungen kann dein Budget deutlich effektiver eingesetzt werden.</p>
+  <br>
+  <p><strong>Zusammengefasst brauchen wir:</strong></p>
+  <ol>
+    <li><strong>Tracking-Fundament legen</strong> — GTM, GA4, Search Console, Cookie-Banner, Clarity, Google Business, Conversion-Tags, Shopify-Integration</li>
+    <li><strong>Messen lernen</strong> — 2–4 Wochen Daten sammeln, um zu verstehen welche Keywords Anfragen bringen</li>
+    <li><strong>Trennen &amp; optimieren</strong> — Zimmerei und Holzhandel in eigene Kampagnen, mit passenden Anzeigen und Landingpages</li>
+    <li><strong>Skalieren</strong> — Nach 4–8 Wochen auf Basis der Daten Budget erhöhen und auf Conversions umstellen</li>
+  </ol>
+</div>
+
+<p>Lass uns den Umsetzungsplan im Detail besprechen und offene Fragen klären — zum Beispiel welche Leistungen und Regionen wir priorisieren sollen.</p>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>Erstellt: März 2026 | Vertraulich | Zimmerei Florian Kindl e.U.</p>
+  <p>Datenquellen: Google Ads Account-Daten (29. Jan – 25. Feb 2026), DataForSEO Keyword-Daten (März 2026), SERP-Analyse, Branchenbenchmarks</p>
+</div>
+
+</div>
+</body>
+</html>
