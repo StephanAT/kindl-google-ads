@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kindlholz — Google Ads Kampagnen Präsentation</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', system-ui, sans-serif; background: #f5f5f5; color: #222; }
+.header { background: #2C1810; color: #fff; padding: 48px 40px; }
+.header h1 { font-size: 32px; font-weight: 800; }
+.header p { font-size: 16px; color: rgba(255,255,255,0.7); margin-top: 8px; }
+.section { padding: 40px; max-width: 1400px; margin: 0 auto; }
+.section h2 { font-size: 24px; font-weight: 700; margin-bottom: 8px; color: #2C1810; }
+.section h3 { font-size: 18px; font-weight: 600; margin: 24px 0 12px; color: #555; }
+.section p.desc { font-size: 14px; color: #666; margin-bottom: 24px; line-height: 1.6; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 24px; margin-bottom: 48px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 48px; }
+.card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.card img { width: 100%; display: block; }
+.card .label { padding: 12px 16px; font-size: 13px; color: #666; }
+.card .label strong { color: #2C1810; }
+.divider { border: none; border-top: 1px solid #ddd; margin: 0; }
+.footer { padding: 40px; text-align: center; color: #999; font-size: 13px; }
+.badge { display: inline-block; background: #8B5E3C; color: #fff; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-left: 8px; }
+.badge-blue { background: #1a73e8; }
+.badge-green { background: #0d904f; }
+.badge-gray { background: #666; }
+.campaign-table { width: 100%; border-collapse: collapse; margin: 16px 0 32px; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.campaign-table th { background: #2C1810; color: #fff; padding: 12px 16px; text-align: left; font-size: 13px; font-weight: 600; }
+.campaign-table td { padding: 10px 16px; border-bottom: 1px solid #eee; font-size: 13px; }
+.campaign-table tr:last-child td { border-bottom: none; }
+.kw { display: inline-block; background: #f0e8df; color: #5C4033; padding: 2px 8px; border-radius: 3px; font-size: 12px; margin: 2px; font-family: monospace; }
+.stat { display: flex; gap: 24px; margin: 16px 0 32px; flex-wrap: wrap; }
+.stat-box { background: #fff; border-radius: 8px; padding: 20px 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); min-width: 160px; }
+.stat-box .num { font-size: 28px; font-weight: 800; color: #2C1810; }
+.stat-box .lbl { font-size: 12px; color: #888; margin-top: 4px; }
+.ad-preview { background: #fff; border: 1px solid #dadce0; border-radius: 8px; padding: 16px; margin: 8px 0 16px; max-width: 600px; }
+.ad-preview .url { font-size: 12px; color: #202124; margin-bottom: 4px; }
+.ad-preview .headline { font-size: 18px; color: #1a0dab; font-weight: 400; line-height: 1.3; margin-bottom: 4px; }
+.ad-preview .desc { font-size: 13px; color: #4d5156; line-height: 1.5; }
+.ad-preview .badge-ad { display: inline-block; background: #fff; border: 1px solid #dadce0; border-radius: 3px; padding: 1px 6px; font-size: 11px; font-weight: 700; color: #202124; margin-right: 6px; }
+.ad-preview .sitelinks { display: flex; gap: 16px; margin-top: 8px; flex-wrap: wrap; }
+.ad-preview .sitelinks a { font-size: 13px; color: #1a0dab; text-decoration: none; }
+.ad-preview .callouts { font-size: 12px; color: #4d5156; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>Zimmerei Kindl — Google Ads Kampagnen</h1>
+  <p>Komplettes Setup: Search + Remarketing | Stand 25. März 2026</p>
+</div>
+
+<div class="section">
+  <h2>Kampagnen-Übersicht</h2>
+  <div class="stat">
+    <div class="stat-box"><div class="num">4</div><div class="lbl">Kampagnen</div></div>
+    <div class="stat-box"><div class="num">9</div><div class="lbl">Anzeigengruppen</div></div>
+    <div class="stat-box"><div class="num">55+</div><div class="lbl">Keywords</div></div>
+    <div class="stat-box"><div class="num">22</div><div class="lbl">Remarketing Creatives</div></div>
+    <div class="stat-box"><div class="num">~€840</div><div class="lbl">Budget / Monat</div></div>
+  </div>
+  <table class="campaign-table">
+    <tr><th>Kampagne</th><th>Typ</th><th>Budget</th><th>Ad Groups</th><th>Status</th></tr>
+    <tr><td><strong>S_NB_Dienstleistungen_AT-NÖ</strong></td><td>Search</td><td>€20/Tag</td><td>6 Anzeigengruppen</td><td><span class="badge badge-gray">Pausiert</span></td></tr>
+    <tr><td><strong>S_B_Marke_AT-NÖ</strong></td><td>Search</td><td>€3/Tag</td><td>1 (Marke)</td><td><span class="badge badge-gray">Pausiert</span></td></tr>
+    <tr><td><strong>DG_RT_Dienstleistungen_AT-NÖ</strong></td><td>Demand Gen (Remarketing)</td><td>€5/Tag</td><td>2 (Foto + Text)</td><td><span class="badge badge-gray">Pausiert</span></td></tr>
+    <tr><td><strong>Search // Allgemein</strong></td><td>Search (bestehend)</td><td>€30/Tag</td><td>1</td><td><span class="badge badge-green">Aktiv</span></td></tr>
+  </table>
+</div>
+
+<hr class="divider">
+
+<div class="section">
+  <h2>Search-Kampagne: Dienstleistungen <span class="badge badge-blue">Search</span></h2>
+  <p class="desc">6 thematische Anzeigengruppen mit eigenen Keywords, Landingpages und Anzeigentexten. Geo: Niederösterreich + Wien. 15 Headlines + 4 Descriptions pro Anzeige.</p>
+  <table class="campaign-table">
+    <tr><th>Anzeigengruppe</th><th>Keywords (Auswahl)</th><th>Landingpage</th><th>Max CPC</th></tr>
+    <tr><td><strong>Zimmerei allgemein</strong></td><td><span class="kw">"zimmerer in der nähe"</span> <span class="kw">"holzbau in der nähe"</span> <span class="kw">"zimmerei niederösterreich"</span> +6</td><td>/</td><td>€2,00</td></tr>
+    <tr><td><strong>Carport</strong></td><td><span class="kw">"carport holz"</span> <span class="kw">"carport bauen lassen"</span> <span class="kw">"carport nach maß"</span> +5</td><td>/pages/carport</td><td>€2,50</td></tr>
+    <tr><td><strong>Dachstuhl & Dachsanierung</strong></td><td><span class="kw">"dachsanierung"</span> <span class="kw">"dachstuhl kosten"</span> <span class="kw">"dachstuhl holz"</span> +5</td><td>/pages/dachstuhle</td><td>€3,00</td></tr>
+    <tr><td><strong>Dachdecker & Dachreparatur</strong></td><td><span class="kw">"dachdecker in meiner nähe"</span> <span class="kw">"dachreparatur"</span> <span class="kw">"dach undicht"</span> +5</td><td>/pages/dachcheck</td><td>€3,50</td></tr>
+    <tr><td><strong>Terrassenüberdachung & Pergola</strong></td><td><span class="kw">"terrassenüberdachung holz"</span> <span class="kw">"pergola holz"</span> <span class="kw">"überdachte terrasse"</span> +8</td><td>/pages/terrassenuberdachung-pergola</td><td>€2,50</td></tr>
+    <tr><td><strong>Spezialleistungen</strong></td><td><span class="kw">"holzriegelbau"</span> <span class="kw">"dachausbau"</span> <span class="kw">"zellulosedämmung"</span> +5</td><td>/pages/holzriegelbau</td><td>€2,00</td></tr>
+  </table>
+
+  <h3>So sehen die Anzeigen bei Google aus</h3>
+  <div class="ad-preview">
+    <div class="url"><span class="badge-ad">Gesponsert</span> kindlholz.at<span>/zimmerei/holzbau</span></div>
+    <div class="headline">Zimmerei Kindl | Holzbau NÖ — Meisterbetrieb seit 1963 — Kostenlose Erstberatung</div>
+    <div class="desc">Zimmerei Kindl — Ihr verlässlicher Partner für Dachstühle, Carports und Holzbau in Niederösterreich. Jetzt unverbindlich anfragen!</div>
+    <div class="sitelinks"><a href="#">Dachstuhl</a><a href="#">Carport</a><a href="#">Terrassenüberdachung</a><a href="#">Kostenloser Dachcheck</a></div>
+    <div class="callouts">Meisterbetrieb seit 1963 · 4,9 Sterne bei 42 Bewertungen · Kostenlose Erstberatung</div>
+  </div>
+  <div class="ad-preview">
+    <div class="url"><span class="badge-ad">Gesponsert</span> kindlholz.at<span>/carport/holz</span></div>
+    <div class="headline">Carport aus Holz | Zimmerei Kindl — Carport nach Maß vom Zimmerer — Nie wieder vereiste Scheiben</div>
+    <div class="desc">Carports aus Holz — perfekter Schutz für Ihre Fahrzeuge. Individuell nach Maß. Anfragen!</div>
+    <div class="sitelinks"><a href="#">Dachstuhl</a><a href="#">Kontakt & Beratung</a><a href="#">Unsere Leistungen</a><a href="#">Kostenloser Dachcheck</a></div>
+    <div class="callouts">Weinviertel / NÖ · Computergesteuerter Abbund · Planung & Ausführung</div>
+  </div>
+  <div class="ad-preview">
+    <div class="url"><span class="badge-ad">Gesponsert</span> kindlholz.at<span>/dach/reparatur</span></div>
+    <div class="headline">Dachdecker in Ihrer Nähe — Kostenloser Dachcheck — Schnelle Hilfe bei Dachschäden</div>
+    <div class="desc">Dach undicht? Experten prüfen mit Kran und Drohne. Kostenloser Dachcheck — jetzt anfragen!</div>
+    <div class="sitelinks"><a href="#">Dachstuhl</a><a href="#">Carport</a><a href="#">Terrassenüberdachung</a><a href="#">Kontakt & Beratung</a></div>
+    <div class="callouts">Meisterbetrieb seit 1963 · 4,9 Sterne bei 42 Bewertungen</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section">
+  <h2>Brand-Kampagne <span class="badge badge-blue">Search</span></h2>
+  <p class="desc">Markenschutz: Fängt Brand-Suchen ab. 3 Exact-Match Keywords, €3/Tag.</p>
+  <div style="display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;"><span class="kw">[zimmerei kindl]</span><span class="kw">[kindl ladendorf]</span><span class="kw">[kindlholz]</span></div>
+  <div class="ad-preview">
+    <div class="url"><span class="badge-ad">Gesponsert</span> kindlholz.at<span>/brand</span></div>
+    <div class="headline">Zimmerei Kindl | Ladendorf — Meisterbetrieb seit 1963 — Dein Zimmerer im Weinviertel</div>
+    <div class="desc">Zimmerei Kindl — Meisterbetrieb in Ladendorf. Dachstühle, Carports und mehr.</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section">
+  <h2>Remarketing: Foto-Sujets <span class="badge">Demand Gen</span></h2>
+  <p class="desc">Echte Projektfotos mit Text-Overlay. Werden auf YouTube, Gmail, Discover und Display ausgespielt an bisherige Website-Besucher.</p>
+  <div class="grid">
+    <div class="card"><img src="remarketing-creatives/png/img-1-carport-landscape.png" alt=""><div class="label"><strong>Carport</strong> — "Neues Carport gesucht?"</div></div>
+    <div class="card"><img src="remarketing-creatives/png/img-2-dachstuhl-landscape.png" alt=""><div class="label"><strong>Dachstuhl</strong> — "Dein Dachstuhl vom Meister."</div></div>
+    <div class="card"><img src="remarketing-creatives/png/img-3-terrasse-landscape.png" alt=""><div class="label"><strong>Terrassenüberdachung</strong> — "Grillsaison verlängern?"</div></div>
+    <div class="card"><img src="remarketing-creatives/png/img-4-holzriegelbau-landscape.png" alt=""><div class="label"><strong>Holzriegelbau</strong> — "Mehr Platz? Bau nach oben."</div></div>
+    <div class="card"><img src="remarketing-creatives/png/img-5-allgemein-landscape.png" alt=""><div class="label"><strong>Allgemein</strong> — "Holzbau aus dem Weinviertel."</div></div>
+  </div>
+  <h3>Square-Varianten</h3>
+  <div class="grid-3">
+    <div class="card"><img src="remarketing-creatives/png/img-1-carport-square.png" alt=""><div class="label"><strong>Carport</strong></div></div>
+    <div class="card"><img src="remarketing-creatives/png/img-2-dachstuhl-square.png" alt=""><div class="label"><strong>Dachstuhl</strong></div></div>
+    <div class="card"><img src="remarketing-creatives/png/img-3-terrasse-square.png" alt=""><div class="label"><strong>Terrasse</strong></div></div>
+    <div class="card"><img src="remarketing-creatives/png/img-4-holzriegelbau-square.png" alt=""><div class="label"><strong>Holzriegelbau</strong></div></div>
+    <div class="card"><img src="remarketing-creatives/png/img-5-allgemein-square.png" alt=""><div class="label"><strong>Allgemein</strong></div></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section">
+  <h2>Remarketing: Text-Sujets <span class="badge">Content-Match</span></h2>
+  <p class="desc">Minimalistische Text-Ads. Content-Match: Besucher sieht das Thema das er sich angeschaut hat.</p>
+  <div class="grid">
+    <div class="card"><img src="remarketing-creatives/png/rm-1-carport-landscape.png" alt=""><div class="label"><strong>Carport</strong> — "Neues Carport gesucht?"</div></div>
+    <div class="card"><img src="remarketing-creatives/png/rm-2-dachstuhl-landscape.png" alt=""><div class="label"><strong>Dachstuhl</strong> — "Dein Dachstuhl vom Meister."</div></div>
+    <div class="card"><img src="remarketing-creatives/png/rm-3-terrasse-landscape.png" alt=""><div class="label"><strong>Terrasse</strong> — "Grillsaison verlängern?"</div></div>
+    <div class="card"><img src="remarketing-creatives/png/rm-4-dachcheck-landscape.png" alt=""><div class="label"><strong>Dachcheck</strong> — "Dach schon gecheckt?"</div></div>
+    <div class="card"><img src="remarketing-creatives/png/rm-5-holzriegelbau-landscape.png" alt=""><div class="label"><strong>Holzriegelbau</strong> — "Mehr Platz? Bau nach oben."</div></div>
+    <div class="card"><img src="remarketing-creatives/png/rm-6-allgemein-landscape.png" alt=""><div class="label"><strong>Allgemein</strong> — "Holzbau aus dem Weinviertel."</div></div>
+  </div>
+  <h3>Square-Varianten</h3>
+  <div class="grid-3">
+    <div class="card"><img src="remarketing-creatives/png/rm-1-carport-square.png" alt=""><div class="label"><strong>Carport</strong></div></div>
+    <div class="card"><img src="remarketing-creatives/png/rm-2-dachstuhl-square.png" alt=""><div class="label"><strong>Dachstuhl</strong></div></div>
+    <div class="card"><img src="remarketing-creatives/png/rm-3-terrasse-square.png" alt=""><div class="label"><strong>Terrasse</strong></div></div>
+    <div class="card"><img src="remarketing-creatives/png/rm-4-dachcheck-square.png" alt=""><div class="label"><strong>Dachcheck</strong></div></div>
+    <div class="card"><img src="remarketing-creatives/png/rm-5-holzriegelbau-square.png" alt=""><div class="label"><strong>Holzriegelbau</strong></div></div>
+    <div class="card"><img src="remarketing-creatives/png/rm-6-allgemein-square.png" alt=""><div class="label"><strong>Allgemein</strong></div></div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<div class="section">
+  <h2>Extensions & Schutz</h2>
+  <h3>Sitelinks</h3>
+  <table class="campaign-table">
+    <tr><th>Sitelink</th><th>URL</th></tr>
+    <tr><td>Dachstuhl</td><td>/pages/dachstuhle</td></tr>
+    <tr><td>Carport</td><td>/pages/carport</td></tr>
+    <tr><td>Terrassenüberdachung</td><td>/pages/terrassenuberdachung-pergola</td></tr>
+    <tr><td>Kontakt & Beratung</td><td>/pages/kontakt</td></tr>
+    <tr><td>Kostenloser Dachcheck</td><td>/pages/dachcheck</td></tr>
+    <tr><td>Unsere Leistungen</td><td>/</td></tr>
+  </table>
+  <h3>Callouts</h3>
+  <p class="desc">Meisterbetrieb seit 1963 · 4,9 Sterne bei 42 Bewertungen · Kostenlose Erstberatung · Computergesteuerter Abbund · Planung & Ausführung · Weinviertel / NÖ</p>
+  <h3>Structured Snippet</h3>
+  <p class="desc"><strong>Dienstleistungen:</strong> Dachstuhl, Carport, Terrassenüberdachung, Holzriegelbau, Dachsanierung, Dachcheck</p>
+  <h3>Negativ-Keywords (~80)</h3>
+  <p class="desc">Shared List auf alle Kampagnen. Schließt aus: DIY, Jobs, Bildung, Schnäppchenjäger, irrelevante Produkte, Shop-Keywords.</p>
+</div>
+
+<div class="footer">Zimmerei Kindl — kindlholz.at — Google Ads Setup März 2026</div>
+</body>
+</html>

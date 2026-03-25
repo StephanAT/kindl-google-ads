@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { margin:0; padding:0; width:1200px; height:628px; font-family:'Inter',system-ui,sans-serif; }
+.c {
+  width:1200px; height:628px;
+  display:flex; flex-direction:column;
+  align-items:flex-start; justify-content:flex-end;
+  padding: 48px 64px;
+  position:relative;
+  background: url('photos/holzhandel.jpg') center/cover no-repeat;
+}
+.overlay {
+  position:absolute; inset:0;
+  background: linear-gradient(to top, rgba(20,12,8,0.85) 0%, rgba(20,12,8,0.4) 50%, rgba(20,12,8,0.1) 100%);
+}
+.content { position:relative; z-index:1; }
+.hl { font-size:48px; font-weight:800; color:#fff; line-height:1.15; letter-spacing:-0.02em; }
+.sub { font-size:24px; font-weight:600; color:rgba(255,255,255,0.85); line-height:1.4; margin-top:12px; }
+.cta {
+  display:inline-block; margin-top:24px;
+  padding:12px 36px; background:#C4883A; color:#fff;
+  font-size:18px; font-weight:700; border-radius:5px;
+}
+.brand {
+  position:absolute; top:28px; right:40px; z-index:1;
+  font-size:15px; font-weight:700; color:#fff;
+  letter-spacing:0.06em; opacity:0.9;
+}
+.stars {
+  font-size:13px; color:#C4883A; margin-top:8px; font-weight:600;
+}
+</style>
+</head>
+<body>
+<div class="c">
+  <div class="overlay"></div>
+  <div class="brand">KINDLHOLZ.AT</div>
+  <div class="content">
+    <div class="hl">Holzbau aus dem Weinviertel.</div>
+    <div class="sub">Zimmerei Kindl — Meisterbetrieb seit 1963.</div>
+    <div class="stars">★★★★★ 4,9 bei 42 Bewertungen</div>
+    <div class="cta">Leistungen ansehen</div>
+  </div>
+</div>
+</body>
+</html>
